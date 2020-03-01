@@ -1,0 +1,5 @@
+virtualenv/*
+venv/*
+.DS_Store
+*.pyc
+logs/*

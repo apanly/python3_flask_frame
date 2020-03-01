@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ config['APP_NAME'] }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="{{ buildStaticUrl('/images/icon.png') }}"/>
+    <!-- Le styles -->
+    <link href="{{ buildStaticUrl('/bootstrap/v3/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ buildStaticUrl('/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ buildStaticUrl('/css/common.css') }}" rel="stylesheet">
+    {%block css %}{% endblock %}
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row top_nav_wrap">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ buildUrl('/') }}" style="padding: 0;">
+                        <img alt="{{ config['APP_NAME'] }}" src="{{ buildStaticUrl('/images/logo.png') }}">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav menu_wrap">
+                        <li class="menu menu_default"><a href="{{ buildUrl('/') }}">仪表盘</a></li>
+                    </ul>
+                    {% if current_user %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">{{ current_user.name }}（{{ current_user.email
+                                }}）<span
+                                        class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ buildUrl('/user/logout') }}">退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row wrap_content" style="padding: 0 20px;min-height: 500px;">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<footer style="margin: 20px 0px;">
+    <div class="container">
+        <div class="row text-center">
+            <p>Copyright © 2018 <a target="_blank" href="http://www.54php.cn">编程浪子</a> All rights reserved | <a
+                    target="_blank" href="https://github.com/apanly/python3_flask_frame">更新日志</a>
+                | <a target="_blank" href="https://github.com/apanly/python3_flask_frame/issues">找茬提需求</a></p>
+        </div>
+    </div>
+</footer>
+<!--隐藏一些东西-->
+<div class="hidden hidden_val_wrap">
+<input name="domain" value="{{ config['DOMAIN']['www'] }}"/>
+</div>
+<script src="{{ buildStaticUrl('/plugins/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ buildStaticUrl('/bootstrap/v3/js/bootstrap.min.js') }}"></script>
+<script src="{{ buildStaticUrl('/plugins/layer/layer.js') }}"></script>
+<script src="{{ buildStaticUrl('/js/common.js') }}"></script>
+{%block js %}{% endblock %}
+</body>
+</html>

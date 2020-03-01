@@ -1,0 +1,12 @@
+Flask
+mysqlclient
+Flask-Script
+Flask-Assets
+Flask-SQLAlchemy
+flask-debugtoolbar
+requests
+BeautifulSoup4
+sqlacodegen
+flask-sqlacodegen
+## 如果是windows uwsgi安装不成功，注释掉就好了
+uwsgi

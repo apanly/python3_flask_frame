@@ -1,0 +1,32 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="page-header">
+        <h3>仪表盘</h3>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                框架说明
+            </div>
+            <div class="panel-body">
+                Python在AI,AR VR这块使用越来越广泛。同时在Web方面也有很多成熟的框架。而我本身由于使用
+Flask 比较多，个人认为就是比较简单，容易入手，可定制化强。这里我将我经过多个项目多次迭代的
+自认为还可以的框架结构整理出来。方便自己可以更容易创建新项目。如果大家喜欢可以也拿去用用
+                <pre>
+* 启动web服务
+    * export ops_config="local|production" && python manage_web.py runserver
+* 启动api服务
+    * export ops_config="local|production" && python manage_api.py runserver
+* 启动Job
+    * export ops_config="local|production" && python manage_job.py runjob -m test
+* 查看Job列表
+    * export ops_config="local|production" && python manage_job.py joblist
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

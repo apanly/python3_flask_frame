@@ -1,0 +1,45 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="row" style='margin-top: 40px ;'>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                <div class="form-horizontal login_wrap">
+                    <h2 class="text-center">{{ config['APP_NAME'] }}</h2>
+                    <div class="form-group form-group-lg">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <input type="text" class="form-control" name="email" placeholder="请输入邮箱地址~~">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <input type="password" class="form-control" name="pwd" placeholder="请输入邮箱密码~~" style="margin-top: 20px">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-lg">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <button class="btn btn-lg btn-block btn-primary do-login">登录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ buildStaticUrl('/js/user/login.js') }}"></script>
+{% endblock %}
+{% block css %}
+<style type="text/css">
+    .panel{
+        background-color: transparent ;
+
+        border: 0px;
+        color: #ffffff;
+    }
+</style>
+
+{% endblock %}
